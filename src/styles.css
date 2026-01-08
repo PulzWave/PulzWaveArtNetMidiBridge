@@ -1,0 +1,135 @@
+/* DISABLE ALL ANIMATIONS AND TRANSITIONS GLOBALLY */
+*, *::before, *::after {
+    transition: none !important;
+    animation: none !important;
+    animation-duration: 0s !important;
+    transition-duration: 0s !important;
+}
+
+/* Fixed window size handling */
+html, body {
+    width: 750px !important;
+    height: 750px !important;
+    max-width: 750px !important;
+    max-height: 750px !important;
+    overflow: hidden !important;
+    background-color: black !important;
+}
+
+/* Header styling */
+.q-header {
+    background-color: #2d1b4e !important;
+}
+
+/* Specifically target Quasar components */
+.q-linear-progress__track,
+.q-linear-progress__model,
+.q-circular-progress,
+.q-circular-progress__svg,
+.q-knob,
+.q-badge,
+.q-btn,
+.q-field,
+.q-tab,
+.q-tab-panel,
+.q-card {
+    transition: none !important;
+    animation: none !important;
+}
+
+/* Dark mode styling */
+.q-tabs {
+    background-color: #1a1a1a !important;
+    color: white !important;
+}
+
+.q-tabs__content {
+    color: white !important;
+}
+
+.q-tab {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.q-tab.q-tab--active {
+    color: white !important;
+}
+
+.q-tab-panels {
+    background: black !important;
+}
+
+.q-card {
+    background-color: #1a1a1a !important;
+    color: white !important;
+}
+
+.q-field__label {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.q-field__native {
+    color: white !important;
+}
+
+.q-field__control {
+    color: white !important;
+}
+
+/* Disable Quasar progress bar animation */
+.q-linear-progress__model {
+    transition: transform 0s !important;
+}
+
+/* Disable knob/circular progress animation */
+.q-circular-progress__svg circle {
+    transition: none !important;
+}
+
+.compact-input .q-field__control { min-height: 32px !important; }
+.compact-input .q-field__native { padding: 2px 0 !important; }
+.dmx-bar { transition: none !important; }
+.value-badge { 
+    min-width: 40px; 
+    text-align: center; 
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 11px;
+}
+.status-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 10px;
+}
+.meter-container {
+    background: rgba(0,0,0,0.3);
+    border-radius: 6px;
+    padding: 4px 8px;
+}
+.mini-knob { transform: scale(0.85); }
+.mini-knob .q-knob__center { color: white !important; }
+/* Force white text on knob values */
+.q-knob .q-circular-progress__text {
+    color: white !important;
+    fill: white !important;
+}
+.q-circular-progress__text {
+    color: white !important;
+    fill: white !important;
+}
+/* MIDI Learn button styling */
+.learn-btn {
+    min-height: 18px !important;
+    padding: 2px 6px !important;
+    font-size: 10px !important;
+    opacity: 0.6;
+}
+.learn-btn:hover {
+    opacity: 1;
+}
+.rgb-preview {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.3);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}

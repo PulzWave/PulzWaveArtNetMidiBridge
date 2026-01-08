@@ -1,0 +1,62 @@
+{
+    "wizard": {
+        "welcome": {
+            "title": "Welcome to PulzWaveArtNetMidiBridge",
+            "subtitle": "Let's get you set up in just a few steps",
+            "description": "This app converts Art-Net DMX signals to MIDI, allowing you to synchronize your lighting console with MIDI-compatible software. This tool is mainly created towards Pangolin Quickshow, but might work for other software as well.",
+            "start_button": "Get Started"
+        },
+        "steps": {
+            "dmx": {
+                "title": "DMX Configuration",
+                "subtitle": "Step 1 of 3",
+                "description": "Configure which Art-Net universe and DMX channel range PulzWaveArtNetMidiBridge should listen to.",
+                "universe_label": "Art-Net Universe",
+                "universe_help": "Select Universe 1 or 2 to match your SoundSwitch Art-Net output settings.",
+                "channel_label": "DMX Start Channel",
+                "channel_help": "The first DMX channel of the 9-channel block that PulzWaveArtNetMidiBridge will read. Channels are: R, G, B, W, UV, Intensity, Strobe, Attribute, Hold."
+            },
+            "midi": {
+                "title": "MIDI Output",
+                "subtitle": "Step 2 of 3",
+                "description": "Select the MIDI output device where PulzWaveArtNetMidiBridge will send control signals.",
+                "port_label": "MIDI Output Port",
+                "port_help": "Choose a virtual MIDI port (like loopMIDI on Windows or IAC Driver on macOS) or a physical MIDI interface.",
+                "no_ports_warning": "No MIDI ports detected. Please install a virtual MIDI driver like loopMIDI (Windows) or enable IAC Driver (macOS).",
+                "intensity_label": "Minimum Intensity",
+                "intensity_help": "The minimum MIDI intensity value (0-127) that will be sent even when the intensity is at zero. Useful to keep visuals slightly visible."
+            },
+            "connection": {
+                "title": "Connection Test",
+                "subtitle": "Step 3 of 3",
+                "description": "Let's verify that PulzWaveArtNetMidiBridge can receive Art-Net data from SoundSwitch.",
+                "waiting_title": "Waiting for Art-Net Signal...",
+                "waiting_description": "Please start SoundSwitch now, if it is not already running. Make sure Art-Net output is enabled in SoundSwitch settings.",
+                "success_title": "Art-Net Signal Detected!",
+                "success_description": "PulzWaveArtNetMidiBridge is successfully receiving DMX data. You're all set!",
+                "skip_text": "Skip this test and finish setup",
+                "troubleshooting": {
+                    "title": "Troubleshooting Tips",
+                    "tips": [
+                        "In SoundSwitch: Settings → Art-Net → Enable Art-Net output",
+                        "Verify the universe number matches your SoundSwitch Art-Net settings",
+                        "Ensure SoundSwitch and PulzWaveArtNetMidiBridge are on the same computer or network",
+                        "Some firewalls may block UDP port 6454 - try disabling temporarily"
+                    ]
+                }
+            }
+        },
+        "navigation": {
+            "back": "Back",
+            "next": "Next",
+            "finish": "Finish Setup",
+            "skip": "Skip"
+        }
+    },
+    "tooltips": {
+        "universe": "Art-Net universes range from 0-15. Each universe carries 512 DMX channels.",
+        "start_channel": "PulzWaveArtNetMidiBridge uses 9 consecutive channels starting from this number.",
+        "midi_port": "Virtual MIDI ports allow routing MIDI between applications on the same computer.",
+        "min_intensity": "Set higher than 0 if you want visuals to always have a base brightness."
+    }
+}
