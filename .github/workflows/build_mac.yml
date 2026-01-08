@@ -1,9 +1,6 @@
-name: Build macOS Application
+name: Build macOS (Manual Test)
 
 on:
-  push:
-    tags:
-      - 'v*'
   workflow_dispatch:
 
 permissions:
