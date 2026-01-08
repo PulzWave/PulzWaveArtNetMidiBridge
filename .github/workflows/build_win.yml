@@ -43,6 +43,6 @@ jobs:
         with:
           files: dist/PulzWaveArtNetMidiBridge.exe
           draft: false
-          prerelease: false
+          prerelease: ${{ contains(github.ref, '-beta') || contains(github.ref, '-alpha') || contains(github.ref, '-rc') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
