@@ -56,7 +56,7 @@ jobs:
           name: windows-builds
           path: |
             dist/PulzWaveArtNetMidiBridge.exe
-            dist/PulzWaveArtNetMidiBridge-*-Setup.exe
+            dist/PulzWaveArtNetMidiBridge-*-Installer.exe
           retention-days: 30
 
   build-macos:

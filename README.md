@@ -98,6 +98,20 @@ On first launch, the app displays a setup wizard that guides you through:
 2. **MIDI Output** - Select your MIDI output device
 3. **Connection Test** - Verify Art-Net connectivity
 
+## SoundSwitch Setup
+
+To use PulzWaveArtNetMidiBridge with [SoundSwitch](https://www.soundswitch.com/), you need to add the fixture to your DMX profile:
+
+1. Open SoundSwitch and go to **DMX Setup**
+2. Click **Add Fixture** 
+3. Search for manufacturer: **Unknown**
+4. Select fixture: **PulzWave ArtNet MIDI Bridge**
+5. Add it to your DMX profile and assign it to the desired universe/channel
+
+![SoundSwitch DMX Setup](docs/SoundSwitch_DMX_Screenshot.png)
+
+> **Note:** Make sure the Art-Net universe and start channel in SoundSwitch match the settings configured in PulzWaveArtNetMidiBridge.
+
 ## Building Executables
 
 ### Windows
