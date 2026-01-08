@@ -29,22 +29,51 @@ jobs:
           pip install -r requirements.txt
           pip install pyinstaller
       
+      - name: Get version from tag
+        id: get_version
+        shell: bash
+        run: |
+          if [[ "${{ github.ref }}" == refs/tags/* ]]; then
+            VERSION="${{ github.ref_name }}"
+            VERSION="${VERSION#v}"  # Remove 'v' prefix
+          else
+            VERSION="dev"
+          fi
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+          echo "Building version: $VERSION"
+      
       - name: Build executable
         run: |
           pyinstaller build_scripts/windows.spec
       
-      - name: Upload artifact
+      - name: Build installer
+        run: |
+          # Download and install Inno Setup
+          choco install innosetup -y
+          # Build the installer with version
+          & "C:\Program Files (x86)\Inno Setup 6\ISCC.exe" "/DMyAppVersion=${{ steps.get_version.outputs.VERSION }}" "build_scripts\windows_installer.iss"
+      
+      - name: Upload executable artifact
         uses: actions/upload-artifact@v4
         with:
-          name: PulzWaveArtNetMidiBridge-Windows
+          name: PulzWaveArtNetMidiBridge-Windows-Portable
           path: dist/PulzWaveArtNetMidiBridge.exe
+          retention-days: 30
+      
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PulzWaveArtNetMidiBridge-Windows-Installer
+          path: dist/PulzWaveArtNetMidiBridge-*-Setup.exe
           retention-days: 30
       
       - name: Create Release
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v1
         with:
-          files: dist/PulzWaveArtNetMidiBridge.exe
+          files: |
+            dist/PulzWaveArtNetMidiBridge.exe
+            dist/PulzWaveArtNetMidiBridge-*-Setup.exe
           draft: false
           prerelease: ${{ contains(github.ref, '-beta') || contains(github.ref, '-alpha') || contains(github.ref, '-rc') }}
         env:
