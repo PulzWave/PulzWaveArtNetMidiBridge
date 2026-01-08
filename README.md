@@ -44,7 +44,7 @@ python -m src.main
 
 ## DMX Channel Layout
 
-Starting from the configured start channel:
+Starting from the configured start channel (10 channels total):
 
 | Offset | Channel | Description |
 |--------|---------|-------------|
@@ -56,14 +56,26 @@ Starting from the configured start channel:
 | +5 | Dimmer | Master Intensity (0-255) |
 | +6 | Strobe | Strobe Speed (0-255) |
 | +7 | Attribute | Note Trigger (0-255) |
-| +8 | Hold | Note Hold Time (0=continuous, 1-255=0-10s) |
+| +8 | Hold MSB | Note Hold Time - High Byte |
+| +9 | Hold LSB | Note Hold Time - Low Byte |
 
-### Hold Time Channel
+### Hold Time (16-bit)
 
+The hold time uses two DMX channels (MSB + LSB) for precise timing control:
+
+- **Calculation**: `(MSB × 256) + LSB = milliseconds`
+- **Range**: 0-10,000 (capped at 10 seconds)
 - **Value 0**: Note is held continuously until the attribute changes
-- **Value 1-255**: Note is held for a duration mapped to 0-10,000ms (10 seconds)
-  - Example: Value 127 ≈ 5 seconds hold time
-  - Example: Value 255 = 10 seconds hold time
+- **Value 1-10000**: Note is held for the specified duration in milliseconds
+
+**Examples:**
+| MSB | LSB | Result |
+|-----|-----|--------|
+| 0 | 0 | Continuous (∞) |
+| 0 | 255 | 255ms |
+| 3 | 232 | 1000ms (1 second) |
+| 19 | 136 | 5000ms (5 seconds) |
+| 39 | 16 | 10000ms (10 seconds) |
 
 ## MIDI Output
 
@@ -147,20 +159,6 @@ PulzWaveArtNetMidiBridge works great with Pangolin QuickShow for lighting-synchr
 The guide includes animated demos showing:
 - How to configure MIDI mapping using the LEARN button
 - What the live synchronization looks like in action
-
-## Building Executables
-
-### Windows
-
-```bash
-pyinstaller build_scripts/windows.spec
-```
-
-### macOS
-
-```bash
-pyinstaller build_scripts/macos.spec
-```
 
 ## Project Structure
 
