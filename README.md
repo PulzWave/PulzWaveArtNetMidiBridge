@@ -14,7 +14,7 @@
 - 🌈 **Color Analysis** - Extracts Hue from RGB for color-reactive visuals
 - 🎹 **Note Triggers** - DMX attribute channel triggers MIDI notes
 - ⚡ **Strobe Support** - Simulates strobe effects via intensity modulation
-- 🖥️ **Cross-Platform** - Works on Windows and macOS support is planned
+- 🖥️ **Cross-Platform** - Native builds for Windows and macOS
 - 🎛️ **Real-time Monitor** - Visual feedback of all DMX and MIDI values
 
 ## Installation
