@@ -98,11 +98,35 @@ On first launch, the app displays a setup wizard that guides you through:
 2. **MIDI Output** - Select your MIDI output device
 3. **Connection Test** - Verify Art-Net connectivity
 
+## loopMIDI Setup (Windows)
+
+PulzWaveArtNetMidiBridge requires a virtual MIDI port to send MIDI to other applications. We recommend [loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html) (free).
+
+1. Download and install loopMIDI
+2. Launch loopMIDI
+3. Click the **+** button to create a new virtual MIDI port
+4. The port will appear in the list and can now be selected in PulzWaveArtNetMidiBridge
+
+![loopMIDI Configuration](docs/loopMIDI_configuration.png)
+
 ## SoundSwitch Setup
 
-To use PulzWaveArtNetMidiBridge with [SoundSwitch](https://www.soundswitch.com/), you need to add the fixture to your DMX profile:
+To use PulzWaveArtNetMidiBridge with [SoundSwitch](https://www.soundswitch.com/), you need to configure Art-Net output and add the fixture.
 
-1. Open SoundSwitch and go to **DMX Setup**
+### Enable Art-Net
+
+1. Open SoundSwitch **Preferences**
+2. Go to the **Art-Net** section
+3. Enable **Art-Net** output
+4. You should see the **PulzWaveArtNetMIDI** interface in the list (make sure the app is running)
+
+![SoundSwitch Preferences](docs/SoundSwitchPreferences.png)
+
+> **Note:** If the PulzWaveArtNetMIDI interface doesn't appear, make sure PulzWaveArtNetMidiBridge is running and listening on the correct network interface.
+
+### Add the Fixture
+
+1. Go to **DMX Setup**
 2. Click **Add Fixture** 
 3. Search for manufacturer: **Unknown**
 4. Select fixture: **PulzWave ArtNet MIDI Bridge**
@@ -111,6 +135,18 @@ To use PulzWaveArtNetMidiBridge with [SoundSwitch](https://www.soundswitch.com/)
 ![SoundSwitch DMX Setup](docs/SoundSwitch_DMX_Screenshot.png)
 
 > **Note:** Make sure the Art-Net universe and start channel in SoundSwitch match the settings configured in PulzWaveArtNetMidiBridge.
+
+## Laser Software Integration
+
+### Pangolin QuickShow
+
+PulzWaveArtNetMidiBridge works great with Pangolin QuickShow for lighting-synchronized laser shows.
+
+📖 **[See the QuickShow Setup Guide →](docs/QuickShow_Setup.md)**
+
+The guide includes animated demos showing:
+- How to configure MIDI mapping using the LEARN button
+- What the live synchronization looks like in action
 
 ## Building Executables
 
