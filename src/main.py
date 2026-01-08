@@ -4,6 +4,13 @@ Entry point for the application.
 """
 
 import sys
+import multiprocessing
+
+# CRITICAL: Must be called at the very start for PyInstaller on macOS
+# This prevents the app from spawning multiple instances
+if __name__ == "__main__":
+    multiprocessing.freeze_support()
+
 import asyncio
 import time
 import colorsys
