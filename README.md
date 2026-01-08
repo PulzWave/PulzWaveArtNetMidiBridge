@@ -2,8 +2,11 @@
 
 **Art-Net to MIDI Bridge** - Convert DMX lighting data to MIDI for visual synchronization.
 
+[![Download](https://img.shields.io/github/v/release/PulzWave/PulzWaveArtNetMidiBridge?label=Download&style=for-the-badge)](https://github.com/PulzWave/PulzWaveArtNetMidiBridge/releases/latest)
+
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS-blue)
 ![Python](https://img.shields.io/badge/python-3.10%2B-green)
+[![License](https://img.shields.io/github/license/PulzWave/PulzWaveArtNetMidiBridge)](LICENSE)
 
 ## Features
 
