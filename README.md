@@ -2,7 +2,8 @@
 
 **Art-Net to MIDI Bridge** - Convert DMX lighting data to MIDI for visual synchronization.
 
-[![Download](https://img.shields.io/github/v/release/PulzWave/PulzWaveArtNetMidiBridge?include_prereleases&label=Download&style=for-the-badge)](https://github.com/PulzWave/PulzWaveArtNetMidiBridge/releases/latest)
+[![Download Stable](https://img.shields.io/github/v/release/PulzWave/PulzWaveArtNetMidiBridge?label=Download%20Stable&style=for-the-badge)](https://github.com/PulzWave/PulzWaveArtNetMidiBridge/releases/latest)
+[![Download Beta](https://img.shields.io/github/v/release/PulzWave/PulzWaveArtNetMidiBridge?include_prereleases&label=Download%20Beta&style=for-the-badge&color=orange)](https://github.com/PulzWave/PulzWaveArtNetMidiBridge/releases)
 
 ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS-blue)
 ![Python](https://img.shields.io/badge/python-3.10%2B-green)
@@ -18,6 +19,33 @@
 - 🎛️ **Real-time Monitor** - Visual feedback of all DMX and MIDI values
 
 ## Installation
+
+### Windows
+
+1. Download the latest **[PulzWaveArtNetMidiBridge-Setup.exe](https://github.com/PulzWave/PulzWaveArtNetMidiBridge/releases/latest)**
+2. Run the installer and follow the prompts
+3. If loopMIDI is not installed, the installer will prompt you to download it
+
+> **Note:** Windows requires [loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html) (free) to create virtual MIDI ports. See [loopMIDI Setup](#loopmidi-setup-windows) for configuration details.
+
+### macOS
+
+1. Download the latest **[PulzWaveArtNetMidiBridge.dmg](https://github.com/PulzWave/PulzWaveArtNetMidiBridge/releases/latest)**
+2. Open the DMG and drag the app to your Applications folder
+3. Set up a virtual MIDI port using the built-in IAC Driver:
+
+#### Creating a Virtual MIDI Port (macOS)
+
+macOS includes a built-in virtual MIDI driver called **IAC Driver**:
+
+1. Open **Audio MIDI Setup** (search in Spotlight or find in `/Applications/Utilities/`)
+2. From the menu bar, select **Window → Show MIDI Studio**
+3. Double-click **IAC Driver**
+4. Check **Device is online**
+5. Click the **+** button under "Ports" to add a new port (e.g., "PulzWave MIDI")
+6. Click **Apply**
+
+The virtual MIDI port will now appear in PulzWaveArtNetMidiBridge and other MIDI applications.
 
 ### From Source
 
@@ -115,7 +143,7 @@ On first launch, the app displays a setup wizard that guides you through:
 
 ## loopMIDI Setup (Windows)
 
-PulzWaveArtNetMidiBridge requires a virtual MIDI port to send MIDI to other applications. We recommend [loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html) (free).
+PulzWaveArtNetMidiBridge requires a virtual MIDI port to send MIDI to other applications. I recommend [loopMIDI](https://www.tobias-erichsen.de/software/loopmidi.html) (free).
 
 1. Download and install loopMIDI
 2. Launch loopMIDI
